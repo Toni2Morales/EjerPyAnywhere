@@ -11,6 +11,6 @@ def entrada():
 
 @app.route("/prediccion", methods=['GET'])
 def prediction():
-    print("aaaaaaaa")
+    return("aaaaaaaa")
 
 
