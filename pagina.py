@@ -11,6 +11,12 @@ def entrada():
 
 @app.route("/prediccion", methods=['GET'])
 def prediction():
-    return("aaaaaaaa")
+    tv = request.args.get("tv", None)
+    radio = request.args.get("radio", None)
+    newspaper = request.args.get("newspaper", None)
+    with open("advertising_model", "rb") as f:
+        modelo = pickle.load(f)
+    prediccion = modelo.predict([[tv, radio, newspaper]])
+    return str(prediccion)
 
 
