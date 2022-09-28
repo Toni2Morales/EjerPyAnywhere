@@ -45,3 +45,4 @@ def reentrenar():
     modelo.fit(x,y)
     connection.close()
     return "El modelo ha sido reentrenado con los valores añadidos"
+app.run()
