@@ -10,7 +10,7 @@ app.config["Debug"] = True
 def entrada():
     return("¡Bienvenido a la página web de Antonio!")
 
-@app.route("/prediccion", methods=['GET'])
+@app.route("/predict", methods=['GET'])
 def prediction():
     tv = request.args.get("tv", None)
     radio = request.args.get("radio", None)
@@ -20,7 +20,7 @@ def prediction():
     prediccion = modelo.predict([[tv, radio, newspaper]])
     return str(prediccion)
 
-@app.route("/agregar", methods=['GET'])
+@app.route("/ingest_data", methods=['GET'])
 def agregar():
     tv = request.args.get("tv", None)
     radio = request.args.get("radio", None)
@@ -45,4 +45,3 @@ def reentrenar():
     modelo.fit(x,y)
     connection.close()
     return "El modelo ha sido reentrenado con los valores añadidos"
-app.run()
